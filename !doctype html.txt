@@ -1,399 +1,385 @@
-
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Versorgungskompass – Webformular</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    :root{
-      --blue:#00549f;
-      --blue2:#0b74c9;
-      --dark:#1f2937;
-      --muted:#667085;
-      --bg:#f3f7fb;
-      --line:#d8e3ef;
-      --soft:#f8fbff;
-      --green:#0f766e;
-      --red:#b42318;
-    }
+<title>Versorgungskompass</title>
 
-    *{
-      box-sizing:border-box;
-    }
+<style>
 
-    body{
-      margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      background:var(--bg);
-      color:var(--dark);
-      line-height:1.45;
-    }
+:root{
+  --blue:#00549f;
+  --blue2:#0b74c9;
+  --dark:#1f2937;
+  --muted:#667085;
+  --bg:#f3f7fb;
+  --line:#d8e3ef;
+  --soft:#f8fbff;
+  --green:#0f766e;
+  --red:#b42318;
+}
 
-    header{
-      background:linear-gradient(135deg,var(--blue),var(--blue2));
-      color:#fff;
-      padding:34px 18px;
-      text-align:center;
-    }
+*{
+  box-sizing:border-box;
+}
 
-    header h1{
-      margin:0 0 10px;
-      font-size:30px;
-    }
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+  line-height:1.45;
+}
 
-    header p{
-      margin:0 auto;
-      max-width:760px;
-      font-size:18px;
-    }
+header{
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:#fff;
+  padding:34px 18px;
+  text-align:center;
+}
 
-    .intro{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      margin:20px auto 0;
-      max-width:980px;
-    }
+header h1{
+  margin:0 0 10px;
+  font-size:32px;
+}
 
-    .intro div{
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.28);
-      border-radius:16px;
-      padding:13px;
-      text-align:left;
-    }
+header p{
+  margin:0 auto;
+  max-width:760px;
+  font-size:18px;
+}
 
-    .intro b{
-      display:block;
-      margin-bottom:4px;
-    }
+.intro{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:22px auto 0;
+  max-width:980px;
+}
 
-    .wrap{
-      max-width:980px;
-      margin:24px auto;
-      padding:0 14px 40px;
-    }
+.intro div{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:16px;
+  padding:14px;
+  text-align:left;
+}
 
-    .card{
-      background:#fff;
-      border-radius:20px;
-      box-shadow:0 12px 34px rgba(16,24,40,.10);
-      padding:24px;
-      margin-bottom:18px;
-    }
+.intro b{
+  display:block;
+  margin-bottom:5px;
+}
 
-    h2{
-      font-size:22px;
-      margin:0 0 6px;
-      color:var(--blue);
-    }
+.wrap{
+  max-width:980px;
+  margin:24px auto;
+  padding:0 14px 40px;
+}
 
-    .hint{
-      margin:0 0 18px;
-      color:var(--muted);
-    }
+.card{
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 12px 34px rgba(16,24,40,.10);
+  padding:24px;
+}
 
-    .section{
-      border-top:1px solid var(--line);
-      padding-top:22px;
-      margin-top:22px;
-    }
+.section{
+  border-top:1px solid var(--line);
+  padding-top:24px;
+  margin-top:24px;
+}
 
-    .section:first-child{
-      border-top:0;
-      padding-top:0;
-      margin-top:0;
-    }
+.section:first-child{
+  border-top:0;
+  padding-top:0;
+  margin-top:0;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:15px;
-    }
+h2{
+  margin:0 0 6px;
+  color:var(--blue);
+  font-size:24px;
+}
 
-    .full{
-      grid-column:1/-1;
-    }
+.hint{
+  margin:0 0 18px;
+  color:var(--muted);
+}
 
-    label{
-      display:block;
-      font-weight:700;
-      font-size:14px;
-      margin-bottom:7px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
 
-    input,
-    select,
-    textarea{
-      width:100%;
-      border:1px solid var(--line);
-      border-radius:13px;
-      padding:13px 14px;
-      font-size:16px;
-      background:#fff;
-      color:var(--dark);
-    }
+.full{
+  grid-column:1/-1;
+}
 
-    textarea{
-      min-height:105px;
-      resize:vertical;
-    }
+label{
+  display:block;
+  font-weight:700;
+  margin-bottom:7px;
+  font-size:14px;
+}
 
-    .checks{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
+input,
+select,
+textarea{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:13px 14px;
+  font-size:16px;
+  background:#fff;
+  color:var(--dark);
+}
 
-    .check{
-      display:flex;
-      gap:9px;
-      align-items:flex-start;
-      background:var(--soft);
-      border:1px solid var(--line);
-      border-radius:13px;
-      padding:11px;
-      font-weight:400;
-    }
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
 
-    .check input{
-      width:auto;
-      margin-top:3px;
-    }
+.checks{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
 
-    .actions{
-      display:flex;
-      gap:12px;
-      justify-content:flex-end;
-      flex-wrap:wrap;
-      margin-top:24px;
-    }
+.check{
+  display:flex;
+  gap:9px;
+  align-items:flex-start;
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:11px;
+}
 
-    button{
-      border:0;
-      border-radius:999px;
-      padding:14px 22px;
-      font-size:16px;
-      font-weight:700;
-      cursor:pointer;
-    }
+.check input{
+  width:auto;
+  margin-top:3px;
+}
 
-    .primary{
-      background:var(--blue);
-      color:#fff;
-    }
+.actions{
+  display:flex;
+  gap:12px;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
 
-    .secondary{
-      background:#e9f0f8;
-      color:var(--dark);
-    }
+button{
+  border:0;
+  border-radius:999px;
+  padding:14px 22px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+}
 
-    .success{
-      background:var(--green);
-      color:#fff;
-    }
+.primary{
+  background:var(--blue);
+  color:#fff;
+}
 
-    .preview{
-      white-space:pre-wrap;
-      background:#f8fafc;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px;
-      margin-top:16px;
-      display:none;
-      font-size:14px;
-    }
+.secondary{
+  background:#e9f0f8;
+  color:var(--dark);
+}
 
-    .required{
-      color:var(--red);
-    }
+.success{
+  background:var(--green);
+  color:#fff;
+}
 
-    .small{
-      font-size:13px;
-      color:var(--muted);
-      margin-top:8px;
-    }
+.preview{
+  white-space:pre-wrap;
+  background:#f8fafc;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+  margin-top:16px;
+  display:none;
+  font-size:14px;
+}
 
-    .ok{
-      display:none;
-      background:#ecfdf5;
-      color:#065f46;
-      border-radius:14px;
-      padding:13px;
-      margin-top:14px;
-    }
+.required{
+  color:var(--red);
+}
 
-    .error{
-      display:none;
-      background:#fef3f2;
-      color:#7a271a;
-      border:1px solid #fecdca;
-      border-radius:14px;
-      padding:13px;
-      margin-top:14px;
-    }
+.small{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:10px;
+}
 
-    @media(max-width:740px){
+.ok{
+  display:none;
+  background:#ecfdf5;
+  color:#065f46;
+  border-radius:14px;
+  padding:13px;
+  margin-top:14px;
+}
 
-      header h1{
-        font-size:25px;
-      }
+.error{
+  display:none;
+  background:#fef3f2;
+  color:#7a271a;
+  border:1px solid #fecdca;
+  border-radius:14px;
+  padding:13px;
+  margin-top:14px;
+}
 
-      .intro,
-      .grid,
-      .checks{
-        grid-template-columns:1fr;
-      }
+@media(max-width:740px){
 
-      .card{
-        padding:18px;
-      }
+  .intro,
+  .grid,
+  .checks{
+    grid-template-columns:1fr;
+  }
 
-      .actions{
-        justify-content:stretch;
-      }
+  .actions button{
+    width:100%;
+  }
 
-      .actions button{
-        width:100%;
-        text-align:center;
-      }
-    }
-  </style>
+  header h1{
+    font-size:26px;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Versorgungskompass</h1>
 
-  <p>
-    Einfach Daten eingeben, Anfrage abschicken und Termin zur Erprobung erhalten.
-  </p>
+<h1>Versorgungskompass</h1>
 
-  <div class="intro">
-    <div>
-      <b>1. Anfrage starten</b>
-      Kontaktdaten und Ausgangssituation eintragen.
-    </div>
+<p>
+Einfach Daten eingeben, Anfrage abschicken und Termin zur Erprobung erhalten.
+</p>
 
-    <div>
-      <b>2. Bedarf beschreiben</b>
-      Mobilität, Ziele und besondere Anforderungen erfassen.
-    </div>
+<div class="intro">
 
-    <div>
-      <b>3. Termin erhalten</b>
-      Das zuständige Team kann die Erprobung gezielt vorbereiten.
-    </div>
-  </div>
+<div>
+<b>1. Anfrage starten</b>
+Kontaktdaten und Ausgangssituation eintragen.
+</div>
+
+<div>
+<b>2. Bedarf beschreiben</b>
+Mobilität, Ziele und besondere Anforderungen erfassen.
+</div>
+
+<div>
+<b>3. Termin erhalten</b>
+Das zuständige Team kann die Erprobung gezielt vorbereiten.
+</div>
+
+</div>
+
 </header>
 
 <main class="wrap">
 
-<section class="card" id="kompass">
+<section class="card">
 
-  <div class="section">
-    <h2>Kontaktdaten</h2>
+<div class="section">
 
-    <p class="hint">
-      Damit wir die Anfrage zuordnen und einen passenden Erprobungstermin abstimmen können.
-    </p>
+<h2>Kontaktdaten</h2>
 
-    <div class="grid">
+<p class="hint">
+Damit wir die Anfrage zuordnen und einen passenden Termin abstimmen können.
+</p>
 
-      <div>
-        <label for="name">
-          Name <span class="required">*</span>
-        </label>
+<div class="grid">
 
-        <input id="name" placeholder="Max Mustermann">
-      </div>
+<div>
+<label>Name <span class="required">*</span></label>
+<input id="name" placeholder="Max Mustermann">
+</div>
 
-      <div>
-        <label for="email">
-          E-Mail <span class="required">*</span>
-        </label>
+<div>
+<label>E-Mail <span class="required">*</span></label>
+<input id="email" type="email" placeholder="max@example.de">
+</div>
 
-        <input id="email" type="email" placeholder="max@example.de">
-      </div>
+<div>
+<label>Telefon</label>
+<input id="phone" placeholder="Telefonnummer">
+</div>
 
-      <div>
-        <label for="phone">Telefon</label>
-        <input id="phone" placeholder="Telefonnummer">
-      </div>
+<div>
+<label>PLZ / Ort</label>
+<input id="city" placeholder="z. B. 28870 Ottersberg">
+</div>
 
-      <div>
-        <label for="city">PLZ / Ort</label>
-        <input id="city" placeholder="z. B. 28870 Ottersberg">
-      </div>
+</div>
 
-    </div>
-  </div>
+</div>
 
-  <div class="section">
+<div class="section">
 
-    <h2>Versorgungsziel</h2>
+<h2>Versorgungsziel</h2>
 
-    <p class="hint">
-      Was soll durch die Versorgung konkret verbessert oder ermöglicht werden?
-    </p>
+<p class="hint">
+Was soll durch die Versorgung verbessert werden?
+</p>
 
-    <div class="checks">
+<div class="checks">
 
-      <label class="check">
-        <input type="checkbox" name="ziel" value="Wohnung">
-        Selbstständige Mobilität in der Wohnung
-      </label>
+<label class="check">
+<input type="checkbox" name="ziel">
+Selbstständige Mobilität in der Wohnung
+</label>
 
-      <label class="check">
-        <input type="checkbox" name="ziel" value="Außenbereich">
-        Selbstständige Mobilität im Außenbereich
-      </label>
+<label class="check">
+<input type="checkbox" name="ziel">
+Selbstständige Mobilität im Außenbereich
+</label>
 
-      <label class="check">
-        <input type="checkbox" name="ziel" value="Positionierung">
-        Positionswechsel / Sitzposition verbessern
-      </label>
+<label class="check">
+<input type="checkbox" name="ziel">
+Positionswechsel / Sitzposition verbessern
+</label>
 
-      <label class="check">
-        <input type="checkbox" name="ziel" value="Teilhabe">
-        Teilhabe am sozialen Leben ermöglichen
-      </label>
+<label class="check">
+<input type="checkbox" name="ziel">
+Teilhabe am sozialen Leben ermöglichen
+</label>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
-  <div id="error" class="error"></div>
-  <div id="ok" class="ok"></div>
-  <div id="preview" class="preview"></div>
+<div id="error" class="error"></div>
+<div id="ok" class="ok"></div>
+<div id="preview" class="preview"></div>
 
-  <div class="actions">
+<div class="actions">
 
-    <button type="button"
-            class="secondary"
-            onclick="showSummary()">
-      Zusammenfassung anzeigen
-    </button>
+<button class="secondary" onclick="showSummary()">
+Zusammenfassung anzeigen
+</button>
 
-    <button type="button"
-            class="primary"
-            onclick="copySummary()">
-      Zusammenfassung kopieren
-    </button>
+<button class="primary" onclick="copySummary()">
+Zusammenfassung kopieren
+</button>
 
-    <button type="button"
-            class="success"
-            onclick="sendMail()">
-      Anfrage absenden
-    </button>
+<button class="success" onclick="sendMail()">
+Anfrage absenden
+</button>
 
-  </div>
+</div>
 
-  <p class="small">
-    Pflichtfelder: Name und E-Mail.
-  </p>
+<p class="small">
+Pflichtfelder: Name und E-Mail.
+</p>
 
 </section>
 
@@ -409,15 +395,6 @@ function value(id){
   return el(id).value.trim();
 }
 
-function selectedGoals(){
-
-  return Array.from(
-    document.querySelectorAll('input[name="ziel"]:checked')
-  )
-  .map(x => x.parentNode.textContent.trim())
-  .join(', ') || 'Keine Auswahl';
-}
-
 function buildSummary(){
 
   return `
@@ -427,9 +404,6 @@ Name: ${value('name')}
 E-Mail: ${value('email')}
 Telefon: ${value('phone')}
 PLZ / Ort: ${value('city')}
-
-Versorgungsziele:
-${selectedGoals()}
 `;
 }
 
@@ -467,16 +441,13 @@ function showSummary(){
   const p = el('preview');
 
   p.textContent = buildSummary();
+
   p.style.display = 'block';
 }
 
 async function copySummary(){
 
-  clearMessages();
-
   const text = buildSummary();
-
-  showSummary();
 
   try{
 
@@ -489,9 +460,7 @@ async function copySummary(){
 
   }catch(e){
 
-    showError(
-      'Kopieren wurde vom Browser blockiert.'
-    );
+    showError('Kopieren nicht möglich.');
   }
 }
 
@@ -500,13 +469,6 @@ function sendMail(){
   if(!validateRequired()) return;
 
   const text = buildSummary();
-
-  showSummary();
-
-  el('ok').textContent =
-    'Das E-Mail-Programm wird geöffnet.';
-
-  el('ok').style.display='block';
 
   const subject =
     encodeURIComponent('Versorgungskompass Anfrage');
