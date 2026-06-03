@@ -104,6 +104,18 @@ function buildSummary(){
   'Telefon: ' + value('phone') + '\n' +
   'PLZ / Ort: ' + value('city') + '\n' +
   'Rolle: ' + value('role') + '\n\n' +
+function buildSummary(){
+
+  return `
+Versorgungskompass Anfrage
+
+Name: ${value('name')}
+E-Mail: ${value('email')}
+Telefon: ${value('phone')}
+PLZ / Ort: ${value('city')}
+Sanitätshaus: ${value('sanitaetshaus')}
+`;
+}
   'Ausgangssituation\n' +
   'Versorgung für: ' + value('person') + '\n' +
   'Aktuelle Mobilität: ' + value('mobility') + '\n' +
